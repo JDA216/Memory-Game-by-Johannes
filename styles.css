@@ -16,6 +16,7 @@ body{
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    perspective: 1000px;
 }
 
 .memory-card {
@@ -24,6 +25,8 @@ body{
     margin: 5px;
     position: relative;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    transform-style: preserve-3d;
+    transition: transform 1s;
   }
 
 .front-face,
