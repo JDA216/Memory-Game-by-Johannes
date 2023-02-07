@@ -6,7 +6,7 @@ let flippedCard = false;
 
 
 function flipCard() {
-  this.classList.addEventListener("flip")
+  this.classList.add("flip");
 
   if (!flippedCard){
     flippedCard = true;
