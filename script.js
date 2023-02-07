@@ -30,7 +30,8 @@ function checkMatch(){
 }
 
 function lockCards(){
-
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
 }
 
 function unflipCards(){
