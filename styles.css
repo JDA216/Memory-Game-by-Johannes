@@ -38,8 +38,9 @@ body{
     border-radius: 5px;
     background: #1C7C00;
     backface-visibility: hidden;
-  }
+    }
 
-  .memory-card.flip{
+
+.memory-card.flip, .front-face{
     transform: rotateY(180deg);
-  }
+}
