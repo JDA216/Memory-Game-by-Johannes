@@ -22,20 +22,24 @@ function flipCard() {
 
 function checkMatch(){
     if (firstCard.data-set === secondCard.data-set){
-        lockCards();
+        clearEventCards();
         return;
     }
 
     unflipCards();
 }
 
-function lockCards(){
+function clearEventCards(){
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
 }
 
 function unflipCards(){
-
+    setTimeout(() =>{
+        firstCard.classList.remove("flip");
+        secondCard.classList.remove("flip");
+    }, 
+    1000);
 }
 
 
