@@ -23,7 +23,7 @@ function flipCard() {
 }
 
 function checkMatch(){
-    if (firstCard.data-set === secondCard.data-set){
+    if (firstCard.dataset.att === secondCard.dataset.att){
         clearEventCards();
         return;
     }
