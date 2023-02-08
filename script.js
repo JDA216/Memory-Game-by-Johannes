@@ -57,7 +57,10 @@ function resetBoard(){
 }
 
 function shuffleMemory(){
-    
+    cards.forEach(card => {
+        let Position = Math.floor(Math.random * 16);
+        card.style.order = Position;
+    })
 }
 
 
