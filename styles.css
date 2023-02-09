@@ -10,6 +10,11 @@ body{
     background: #04ce04;
 }
 
+.settings {
+position: absolute;
+left: 46%;
+}
+
 .memory-game {
     width: 500px;
     height: 500px;
