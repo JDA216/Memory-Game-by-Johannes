@@ -10,9 +10,17 @@ body{
     background: #04ce04;
 }
 
-.settings {
-position: absolute;
-left: 46%;
+.button1 {
+background-color: rgb(37, 26, 122);
+border: none;
+color: white;
+width: 150px;
+height: 60px;
+text-align: center;
+border-radius: 12px;
+position: relative;
+top: 46%;
+left: 20%;
 }
 
 .memory-game {
