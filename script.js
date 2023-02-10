@@ -80,7 +80,8 @@ function resetBoard(){
  }
 
  function showScore(){
-    
+    let score = document.getElementById("ScorePoints");
+    document.write ("score");   
  }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
