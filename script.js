@@ -56,12 +56,31 @@ function resetBoard(){
 [firstCard, secondCard] = [null, null];
 }
 
-function shuffleMemory() {
+(function shuffleMemory() {
    cards.forEach(card => {
      let Position = Math.floor(Math.random() * 16);
      card.style.order = Position;
    });
- };
+ })();
 
+ let score = 0;
+ let x = 2;
+
+ function countingScore(){
+    if (firstCard.dataset.att == secondCard.dataset.att){
+        score =+ x;
+    }
+    else {
+        score =- (x/2);
+        if (score<0) {
+            score = 0;
+        }
+    }
+    showScore();
+ }
+
+ function showScore(){
+    
+ }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
