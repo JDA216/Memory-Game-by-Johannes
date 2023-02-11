@@ -51,6 +51,7 @@ function checkMatch(){
         setTimeout(writeCongrats, 2000);
         
     }
+    setTimeout(removeScoreText, 2000);
    
 }
 
@@ -90,7 +91,7 @@ function resetBoard(){
  })();
 
  function writeScore(scoreText){
-    document.getElementById("Score-Points").innerHTML = scoreText;
+    document.getElementById("Score-Points").innerHTML = "Current Score" + scoreText;
 
  }
 
@@ -102,6 +103,10 @@ function resetBoard(){
         return false;
     }
 
+ }
+
+ function removeScoreText(){
+    document.getElementById("Score-Counter").innerHTML = "";
  }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
