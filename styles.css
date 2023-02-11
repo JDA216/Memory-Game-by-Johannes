@@ -82,4 +82,8 @@ left: 15%;
 .boxInvisible{
 	text-align: right;
 	color: rgb(255, 0, 0);
+    width: 80%;
+	position: absolute;
+	top: 0%;
+	left: 10%;
 }
