@@ -45,7 +45,10 @@ function checkMatch(){
         unflipCards();
 
     }
-
+    if (finishedGame()) {
+        alert("Herzlichen Glückwunsch, du hast das Spiel erfolgreich beendet. Dein Highscore ist:" + score);
+    }
+    return;
    
 }
 
@@ -86,7 +89,7 @@ function resetBoard(){
  }
 
  function finishedGame(){
-    
+
  }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
