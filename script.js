@@ -46,10 +46,14 @@ function checkMatch(){
 
     }
     if (finishedGame()) {
-        alert("Herzlichen Glückwunsch, du hast das Spiel erfolgreich beendet. Dein Highscore ist:" + score);
+        setTimeout(writeCongrats, 2000);
+        
     }
-    return;
    
+}
+
+function writeCongrats(){
+    alert("Herzlichen Glückwunsch, du hast das Spiel erfolgreich beendet. \n Dein Highscore ist:" + score);
 }
 
 function clearEventCards(){
