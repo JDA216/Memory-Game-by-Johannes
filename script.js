@@ -84,7 +84,7 @@ function resetBoard(){
  })();
 
  function writeScore(scoreText){
-    document.getElementById("ScorePoints").innerHTML = scoreText;
+    document.getElementById("Score-Points").innerHTML = scoreText;
 
  }
 
