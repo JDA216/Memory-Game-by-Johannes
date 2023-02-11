@@ -89,6 +89,12 @@ function resetBoard(){
  }
 
  function finishedGame(){
+    if (pairCounter == 8){
+        return true;
+    }
+    else{
+        return false;
+    }
 
  }
 
