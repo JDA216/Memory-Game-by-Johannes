@@ -6,7 +6,7 @@ let flippedCard = false;
 let lockBoard = false;
 
 let score = 0;
-let x = 2;
+let X = 2;
 let pairCounter = 0;
 
 
@@ -30,10 +30,23 @@ function flipCard() {
 function checkMatch(){
     if (firstCard.dataset.att === secondCard.dataset.att){
         clearEventCards();
-        return;
+        score = score + X;
+        writeScore(score);
+        pairCounter ++;
+    }
+    else{
+        if (score > 0.5 * X){
+            score = score - 0.5 * X;
+        }
+        else (score < 0) {
+            score = 0;
+        }
+        writeScore(score);
+        unflipCards();
+
     }
 
-    unflipCards();
+   
 }
 
 function clearEventCards(){
