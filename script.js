@@ -24,7 +24,7 @@ function flipCard() {
     }
 
     secondCard = this;
-    
+
     checkMatch();
 }
 
@@ -92,7 +92,7 @@ function resetBoard(){
  })();
 
  function writeScore(scoreText){
-    document.getElementById("Score-Points").innerHTML = "Current Score" + scoreText;
+    document.getElementById("Score-Points").innerHTML = "Current Score: " + scoreText;
 
  }
 
