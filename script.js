@@ -9,6 +9,8 @@ let score = 0;
 let X = 2;
 let pairCounter = 0;
 
+writeScore(score);
+cards.forEach(card => card.addEventListener("click", flipCard));
 
 function flipCard() {
     if (lockBoard) return;
@@ -109,4 +111,3 @@ function resetBoard(){
     document.getElementById("Score-Counter").innerHTML = "";
  }
 
-cards.forEach(card => card.addEventListener("click", flipCard));
