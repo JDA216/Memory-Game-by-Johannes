@@ -64,6 +64,12 @@ left: 15%;
     color: rgb(37, 26, 122);
 }
 
+.ScoreboardCounter{
+	text-align: right;
+	margin-right: 10%;
+	color: rgb(255, 0, 0);
+}
+
 .box{
 	background: rgb(230, 230, 230);
 	border-radius: 10px;
