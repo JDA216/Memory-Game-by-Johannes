@@ -5,6 +5,10 @@ let secondCard;
 let flippedCard = false;
 let lockBoard = false;
 
+let score = 0;
+let x = 2;
+let pairCounter = 0;
+
 
 function flipCard() {
     if (lockBoard) return;
@@ -63,8 +67,7 @@ function resetBoard(){
    });
  })();
 
- let score = 0;
- let x = 2;
+ 
 
  function countingScore(){
     if (firstCard.dataset.att == secondCard.dataset.att){
@@ -81,7 +84,7 @@ function resetBoard(){
 
  function showScore(){
     let score = document.getElementById("ScorePoints");
-    document.write ("score");   
+    document.write ("Highscore" + score);   
  }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
