@@ -15,18 +15,17 @@ cards.forEach(card => card.addEventListener("click", flipCard));
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
-  this.classList.add("flip");
+    this.classList.add("flip");
 
-  if (!flippedCard){
-    flippedCard = true;
-    firstCard = this;
-    return;
-  }
+    if (!flippedCard){
+        flippedCard = true;
+        firstCard = this;
+        return;
+    }
 
-  secondCard = this;
-
-
-  checkMatch();
+    secondCard = this;
+    
+    checkMatch();
 }
 
 function checkMatch(){
