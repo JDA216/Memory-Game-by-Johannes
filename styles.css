@@ -78,3 +78,8 @@ left: 15%;
 	top: 0%;
 	left: 5%;
 }
+
+.boxInvisible{
+	text-align: right;
+	color: rgb(255, 0, 0);
+}
