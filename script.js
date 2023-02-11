@@ -35,10 +35,10 @@ function checkMatch(){
         pairCounter ++;
     }
     else{
-        if (score > 0.5 * X){
+        if (score >= 0.5 * X){
             score = score - 0.5 * X;
         }
-        else (score < 0) {
+        if (score < 0) {
             score = 0;
         }
         writeScore(score);
@@ -80,24 +80,13 @@ function resetBoard(){
    });
  })();
 
- 
+ function writeScore(scoreText){
+    document.getElementById("ScorePoint").innerHTML = scoreText;
 
- function countingScore(){
-    if (firstCard.dataset.att == secondCard.dataset.att){
-        score =+ x;
-    }
-    else {
-        score =- (x/2);
-        if (score<0) {
-            score = 0;
-        }
-    }
-    showScore();
  }
 
- function showScore(){
-    let score = document.getElementById("ScorePoints");
-    document.write ("Highscore" + score);   
+ function finishedGame(){
+    
  }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
