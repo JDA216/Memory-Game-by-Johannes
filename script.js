@@ -32,11 +32,13 @@ function checkMatch(){
         clearEventCards();
         score = score + X;
         writeScore(score);
+        document.getElementById("Score-Counter").innerHTML = "+2";
         pairCounter ++;
     }
     else{
         if (score >= 0.5 * X){
             score = score - 0.5 * X;
+            document.getElementById("Score-Counter").innerHTML = (-0.5 * X);
         }
         if (score < 0) {
             score = 0;
