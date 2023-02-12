@@ -1,4 +1,4 @@
-//returns all elements that match with this specified section
+//returns all elements that match with this specified selection
 
 const cards = document.querySelectorAll(".memory-card");
 
@@ -25,7 +25,7 @@ function flipCard() {
     if (this === firstCard) return;         //If its the first card no calculations have to be made
     this.classList.add("flip");             //Update flip state
 
-    if (!flippedCard){                      //Update flipped card
+    if (!flippedCard){                      //Update flipped card, (boolean)
         flippedCard = true;
         firstCard = this;
         return;
@@ -37,13 +37,15 @@ function flipCard() {
 }
 
 
+//function to check for pairs and update the score 
+
 function checkMatch(){
-    if (firstCard.dataset.att === secondCard.dataset.att){
-        clearEventCards();
-        score = score + X;
-        writeScore(score);
-        document.getElementById("Score-Counter").innerHTML = "+2";
-        pairCounter ++;
+    if (firstCard.dataset.att === secondCard.dataset.att){                         //if cards are a pair                       
+        clearEventCards();                                                         //reset board state
+        score = score + X;                                                         //add X to score as bonus
+        writeScore(score);                                                         //write the updated score
+        document.getElementById("Score-Counter").innerHTML = "+2";                 //write gained score temp on the side
+        pairCounter ++;                                                            //increase pair counter to know when game is finished
     }
     else {
         if (score >= 0.5 * X){
