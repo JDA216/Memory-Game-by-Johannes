@@ -110,20 +110,24 @@ function resetBoard(){
 
 (function shuffleMemory() {                         //immediately invoked function
    cards.forEach(card => {
-     let Position = Math.floor(Math.random() * 16);
+     let Position = Math.floor(Math.random() * 16); //generate a random number between 0 and 1, multiplying it by 16 and rounding down
      card.style.order = Position;
    });
 })();
 
 
+//function to write the current score
+
 function writeScore(scoreText){
-    document.getElementById("Score-Points").innerHTML = "Current Score: " + scoreText;
+    document.getElementById("Score-Points").innerHTML = "Current Score: " + scoreText;      //write score to HTML element
 }
 
 
+//function if all 8 pairs are guessed and therefore the game is finished
+
 function finishedGame(){
     if (pairCounter == 8){
-        return true;
+        return true;                                //return boolean weather the game is finished or not
     }
     else{
         return false;
@@ -132,7 +136,9 @@ function finishedGame(){
 }
 
 
+//function to remove the non-permanent score text
+
 function removeScoreText(){
-    document.getElementById("Score-Counter").innerHTML = "";
+    document.getElementById("Score-Counter").innerHTML = "";                            //write empty score-counter to HTML element                                                       
 }
 
