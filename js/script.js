@@ -28,6 +28,7 @@ function flipCard() {
     checkMatch();
 }
 
+
 function checkMatch(){
     if (firstCard.dataset.att === secondCard.dataset.att){
         clearEventCards();
@@ -36,7 +37,7 @@ function checkMatch(){
         document.getElementById("Score-Counter").innerHTML = "+2";
         pairCounter ++;
     }
-    else{
+    else {
         if (score >= 0.5 * X){
             score = score - 0.5 * X;
             document.getElementById("Score-Counter").innerHTML = (-0.5 * X);
@@ -52,13 +53,14 @@ function checkMatch(){
         setTimeout(writeCongrats, 2000);
         
     }
-    setTimeout(removeScoreText, 2000);
-   
+    setTimeout(removeScoreText, 2000); 
 }
+
 
 function writeCongrats(){
     alert("Herzlichen Glückwunsch, du hast das Spiel erfolgreich beendet. \n Dein Highscore ist:" + score);
 }
+
 
 function clearEventCards(){
     firstCard.removeEventListener("click", flipCard);
@@ -66,6 +68,7 @@ function clearEventCards(){
 
     resetBoard();
 }
+
 
 function unflipCards(){
     lockBoard = true;
@@ -79,24 +82,28 @@ function unflipCards(){
     
     3000);
 }
+
+
 function resetBoard(){
 [flippedCard, lockBoard] = [false, false];
 [firstCard, secondCard] = [null, null];
 }
+
 
 (function shuffleMemory() {
    cards.forEach(card => {
      let Position = Math.floor(Math.random() * 16);
      card.style.order = Position;
    });
- })();
+})();
 
- function writeScore(scoreText){
+
+function writeScore(scoreText){
     document.getElementById("Score-Points").innerHTML = "Current Score: " + scoreText;
+}
 
- }
 
- function finishedGame(){
+function finishedGame(){
     if (pairCounter == 8){
         return true;
     }
@@ -104,9 +111,10 @@ function resetBoard(){
         return false;
     }
 
- }
+}
 
- function removeScoreText(){
+
+function removeScoreText(){
     document.getElementById("Score-Counter").innerHTML = "";
- }
+}
 
