@@ -1,23 +1,31 @@
+//returns all elements that match with this specified section
+
 const cards = document.querySelectorAll(".memory-card");
 
-let firstCard;
-let secondCard;
-let flippedCard = false;
-let lockBoard = false;
 
-let score = 0;
-let X = 2;
-let pairCounter = 0;
+//Variable setup
 
-writeScore(score);
+let firstCard;                              //Variable to store first picked card
+let secondCard;                             //Variable to store second picked card
+let flippedCard = false;                    //Variable to store current game state
+let lockBoard = false;                      //Variable to store if the board is locked and a input could be valid
+
+let score = 0;                              //Current scoreboard score
+let X = 2;                                  //Scoreboard calculator
+let pairCounter = 0;                        //Current ammount of right pairs
+
+writeScore(score);                          //Update scoreboard
 cards.forEach(card => card.addEventListener("click", flipCard));
 
-function flipCard() {
-    if (lockBoard) return;
-    if (this === firstCard) return;
-    this.classList.add("flip");
 
-    if (!flippedCard){
+//function for flipping a card
+
+function flipCard() {
+    if (lockBoard) return;                  //If board is locked no input can be made
+    if (this === firstCard) return;         //If its the first card no calculations have to be made
+    this.classList.add("flip");             //Update flip state
+
+    if (!flippedCard){                      //Update flipped card
         flippedCard = true;
         firstCard = this;
         return;
@@ -25,7 +33,7 @@ function flipCard() {
 
     secondCard = this;
 
-    checkMatch();
+    checkMatch();                           //Check weather the cards pair or not
 }
 
 
