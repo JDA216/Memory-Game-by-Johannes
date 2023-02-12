@@ -59,11 +59,11 @@ function checkMatch(){
         unflipCards();                              //unflip cards if they are not a pair
 
     }
-    if (finishedGame()) {                           //check if game is finished and if yes write prompt with score and congrats after 2secs
+    if (finishedGame()) {                           //check if game is finished and if yes write prompt with score and congrats after 2sec
         setTimeout(writeCongrats, 2000);
         
     }
-    setTimeout(removeScoreText, 2000);              //temp score writer, remove it after 2secs
+    setTimeout(removeScoreText, 2000);              //temp score writer, remove it after 2sec
 }
 
 
@@ -71,6 +71,8 @@ function writeCongrats(){
     alert("Herzlichen Glückwunsch, du hast das Spiel erfolgreich beendet. \nDein Highscore ist: " + score);
 }
 
+
+//function to resest the board
 
 function clearEventCards(){
     firstCard.removeEventListener("click", flipCard);
@@ -80,9 +82,11 @@ function clearEventCards(){
 }
 
 
+//function to flip the cards back if they are not a pair with a delay of 3sec
+
 function unflipCards(){
-    lockBoard = true;
-    setTimeout(() =>{
+    lockBoard = true;                               //lock board for new input
+    setTimeout(() =>{                               //timeout for 3sec
         firstCard.classList.remove("flip");
         secondCard.classList.remove("flip");
     
@@ -90,17 +94,21 @@ function unflipCards(){
         resetBoard();
     }, 
     
-    3000);
+    3000);                                          //3000ms = 3sec
 }
 
+
+//function to reset the whole board and start over
 
 function resetBoard(){
-[flippedCard, lockBoard] = [false, false];
-[firstCard, secondCard] = [null, null];
+[flippedCard, lockBoard] = [false, false];          //card status, (destructuring assignment)
+[firstCard, secondCard] = [null, null];             //cards 
 }
 
 
-(function shuffleMemory() {
+//function shuffle the cards after a restart and apply the positions to the position array
+
+(function shuffleMemory() {                         //immediately invoked function
    cards.forEach(card => {
      let Position = Math.floor(Math.random() * 16);
      card.style.order = Position;
