@@ -5,27 +5,27 @@ const cards = document.querySelectorAll(".memory-card");
 
 //Variable setup
 
-let firstCard;                              //Variable to store first picked card
-let secondCard;                             //Variable to store second picked card
-let flippedCard = false;                    //Variable to store current game state
-let lockBoard = false;                      //Variable to store if the board is locked and a input could be valid
+let firstCard;                                      //Variable to store first picked card
+let secondCard;                                     //Variable to store second picked card
+let flippedCard = false;                            //Variable to store current game state
+let lockBoard = false;                              //Variable to store if the board is locked and a input could be valid
 
-let score = 0;                              //Current scoreboard score
-let X = 2;                                  //Scoreboard calculator
-let pairCounter = 0;                        //Current ammount of right pairs
+let score = 0;                                      //Current scoreboard score
+let X = 2;                                          //Scoreboard calculator
+let pairCounter = 0;                                //Current ammount of right pairs
 
-writeScore(score);                          //Update scoreboard
+writeScore(score);                                  //Update scoreboard
 cards.forEach(card => card.addEventListener("click", flipCard));
 
 
 //function for flipping a card
 
 function flipCard() {
-    if (lockBoard) return;                  //If board is locked no input can be made
-    if (this === firstCard) return;         //If its the first card no calculations have to be made
-    this.classList.add("flip");             //Update flip state
+    if (lockBoard) return;                          //If board is locked no input can be made
+    if (this === firstCard) return;                 //If its the first card no calculations have to be made
+    this.classList.add("flip");                     //Update flip state
 
-    if (!flippedCard){                      //Update flipped card, (boolean)
+    if (!flippedCard){                              //Update flipped card, (boolean)
         flippedCard = true;
         firstCard = this;
         return;
@@ -33,42 +33,42 @@ function flipCard() {
 
     secondCard = this;
 
-    checkMatch();                           //Check weather the cards pair or not
+    checkMatch();                                   //Check weather the cards pair or not
 }
 
 
 //function to check for pairs and update the score 
 
 function checkMatch(){
-    if (firstCard.dataset.att === secondCard.dataset.att){                         //if cards are a pair                       
-        clearEventCards();                                                         //reset board state
-        score = score + X;                                                         //add X to score as bonus
-        writeScore(score);                                                         //write the updated score
-        document.getElementById("Score-Counter").innerHTML = "+2";                 //write gained score temp on the side
-        pairCounter ++;                                                            //increase pair counter to know when game is finished
+    if (firstCard.dataset.att === secondCard.dataset.att){                             //if cards are a pair                       
+        clearEventCards();                                                             //reset board state
+        score = score + X;                                                             //add X to score as bonus
+        writeScore(score);                                                             //write the updated score
+        document.getElementById("Score-Counter").innerHTML = "+2";                     //write gained score temp on the side
+        pairCounter ++;                                                                //increase pair counter to know when game is finished
     }
-    else {
-        if (score >= 0.5 * X){
-            score = score - 0.5 * X;
-            document.getElementById("Score-Counter").innerHTML = (-0.5 * X);
+    else {                                                                             //if cards are a NOT a pair
+        if (score >= 0.5 * X){                                                         //if score is rather than the given 0.5 * scoreboard calculator          
+            score = score - 0.5 * X;                                                   //decrease score
+            document.getElementById("Score-Counter").innerHTML = (-0.5 * X);           //write gained score temp on the side    
         }
-        if (score < 0) {
+        if (score < 0) {                                                               //if score should get under 0 then set to 0 (only happens if X is net inccoretly)
             score = 0;
         }
-        writeScore(score);
-        unflipCards();
+        writeScore(score);                          //Update scoreboard
+        unflipCards();                              //unflip cards if they are not a pair
 
     }
-    if (finishedGame()) {
+    if (finishedGame()) {                           //check if game is finished and if yes write prompt with score and congrats after 2secs
         setTimeout(writeCongrats, 2000);
         
     }
-    setTimeout(removeScoreText, 2000); 
+    setTimeout(removeScoreText, 2000);              //temp score writer, remove it after 2secs
 }
 
 
 function writeCongrats(){
-    alert("Herzlichen Glückwunsch, du hast das Spiel erfolgreich beendet. \n Dein Highscore ist:" + score);
+    alert("Herzlichen Glückwunsch, du hast das Spiel erfolgreich beendet. \nDein Highscore ist: " + score);
 }
 
 
