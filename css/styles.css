@@ -41,7 +41,7 @@ body {
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
     transform-style: preserve-3d;
     transition: transform 1s;
-  }
+}
 
 .front-face,
 .back-face {
@@ -50,7 +50,7 @@ body {
     position: absolute;
     border-radius: 5px;
     backface-visibility: hidden;
-    }
+}
 
 .memory-card.flip, .front-face {
     transform: rotateY(180deg);
